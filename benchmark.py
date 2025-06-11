@@ -1,9 +1,6 @@
 import time
 from memory_profiler import profile
 
-# Importe as funções dos seus arquivos
-# NOTA: Adaptei ligeiramente os seus arquivos para que as funções possam ser importadas e executadas.
-# Por exemplo, movi o código de execução para dentro de um `if __name__ == "__main__":`.
 from solve_csp import solve_sudoku_csp
 from solve_dlx import DancingLinks, sudoku_to_exact_cover, decode_solution
 from solve_sat import solve_sudoku_with_sat
@@ -24,7 +21,6 @@ puzzle = [
 # Função wrapper para o profiler de memória e tempo
 @profile
 def run_csp_solver():
-    # É preciso uma cópia porque a função CSP modifica o puzzle in-place
     puzzle_copy = [row[:] for row in puzzle]
     solve_sudoku_csp(puzzle_copy)
     return puzzle_copy
@@ -87,5 +83,5 @@ def run_benchmarks(runs=5):
 
 if __name__ == "__main__":
     # Para o benchmark de tempo, execute o script normalmente
-    # Para o benchmark de memória, execute com o memory_profiler (veja o comando abaixo)
+    # Para o benchmark de memória, execute com o memory_profiler
     run_benchmarks()
