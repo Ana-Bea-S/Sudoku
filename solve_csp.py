@@ -95,7 +95,7 @@ def print_sudoku(puzzle):
     for row in puzzle:
         print(" ".join(str(num) if num != 0 else "." for num in row))
 
-# Executar
+
 if solve_sudoku_csp(puzzle):
     print("Sudoku resolvido usando CSP:")
     print_sudoku(puzzle)
